@@ -4,6 +4,8 @@ require("dotenv").config()
 const workoutRoutes=require('./routes/workRouts')
 
 const app=express();
+//mongoose require
+const mongoose=require('mongoose')
 
 //middelwere
 //access to midelwere for update data
@@ -26,7 +28,17 @@ next()
 //api/woroutes/
 app.use('/api/woroutes',workoutRoutes)
 
-//listen to request
-app.listen(process.env.PORT,()=>{
-   console.log("listening on port", process.env.PORT);
+
+//conect to db
+mongoose.connect(process.env.URI)
+.then(()=>{
+    
+  //listen to request
+  app.listen(process.env.PORT, () => {
+    console.log("listening on port", process.env.PORT);
+  });
+
 })
+.catch((error)=>{console.log(error);})
+
+
