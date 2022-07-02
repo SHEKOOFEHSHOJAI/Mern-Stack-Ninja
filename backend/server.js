@@ -33,13 +33,13 @@ app.use('/api/woroutes',workoutRoutes)
 mongoose
   .connect(process.env.MOGO_URI)
   .then(() => {
+    
     //listen to request
     app.listen(process.env.PORT, () => {
       console.log("listening on port", process.env.PORT);
     });
-  })
+  })  
   .catch((error) => {
     console.log(error);
-  });
-
-
+  });  
+  

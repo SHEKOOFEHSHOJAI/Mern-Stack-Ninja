@@ -1,4 +1,5 @@
 const express=require("express");
+const workout=require('../models/workoutMoudels')
 //export router from express
 const router=express.Router();
 
@@ -15,8 +16,17 @@ router.get('/:id',(req,res)=>{
 })
 
 //POST A NEW WORKOUT
-router.post('/',(req,res)=>{
-    res.json({mess:'POST A NEW WORKOUT'})
+router.post('/',async(req,res)=>{
+    const {title,reps,load}=req.body;
+    try{
+        //create document
+        const workout=await workout.create({title,load,reps});
+        res.status(200).json(workout)
+    }
+    catch(error){
+        res.status(400).json({error:error.message})
+    }
+    
 })
 
 
