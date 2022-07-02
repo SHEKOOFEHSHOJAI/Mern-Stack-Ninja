@@ -7,7 +7,7 @@ const router=express.Router();
 
 //get all woroutes
 //woroutes is routes
-router.get('/',getWorkouts)=
+router.get('/',getWorkouts)
 //GET SINGLE WORKOUT
 router.get("/:id", getWorkout);
 
