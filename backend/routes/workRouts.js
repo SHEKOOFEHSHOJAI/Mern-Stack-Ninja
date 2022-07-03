@@ -30,4 +30,7 @@ router.post("/", createWorkout);
 router.delete('/:id',deleteWorkout)
 // UPDATE A NEW WORKOUT
 router.patch("/:id", updateWorkout) 
+
+
+
 module.exports=router
