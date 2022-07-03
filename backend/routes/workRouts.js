@@ -1,6 +1,6 @@
 const express=require("express");
 // const workout=require('../models/workoutMoudels')
-const { createWorkout,getWorkout,getWorkouts } = require("../coutrollers/workoutCoutroller");
+const { createWorkout,getWorkout,getWorkouts,deleteWorkout,updateWorkout } = require("../coutrollers/workoutCoutroller");
 
 //export router from express
 const router=express.Router();
@@ -27,12 +27,7 @@ router.post("/", createWorkout);
 
 
 //DELETE A NEW WORKOUT
-router.delete('/:id',(req,res)=>{
-    res.json({mess:'DELETE A NEW WORKOUT !!!'})
-})
-
+router.delete('/:id',deleteWorkout)
 // UPDATE A NEW WORKOUT
-router.patch("/:id", (req, res) => {
-  res.json({ mess: "UPDUTE A NEW WORKOUT 3>" });
-});
+router.patch("/:id", updateWorkout) 
 module.exports=router
