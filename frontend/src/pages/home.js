@@ -1,7 +1,7 @@
 
 import {useEffect,useState  } from "react";
 
-
+import  workoutDetails from "../components/workoutDetails";
 
 const Home=()=>{
 
@@ -9,7 +9,7 @@ const Home=()=>{
 
     useEffect(() => {
       const fetchWorkout = async () => {
-        const response = await fetch("http://localhost:4200/api/workouts");
+        const response = await fetch("/api/workouts");
         
         const json = await response.json();
 
@@ -27,7 +27,7 @@ const Home=()=>{
 
             {workout && workout.map((workout)=>(
              
-             <p key={workout._id}>{workout.title}</p>
+             <workoutDetails key={workout._id} workout={workout}/>
             ))}
 
             </div>
