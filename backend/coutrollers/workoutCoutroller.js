@@ -1,38 +1,36 @@
+const { default: mongoose } = require("mongoose");
 const workout = require("../models/workoutMoudels");
  
 const moongoose=require('mongoose')
 //get all workout
 
-const getWorkout=async(req,res)=>{
-    const workouts=await workouts.find({}).sort({createdAt:-1}) 
-    res.status(200).json(workouts);
-   
-    
-}
+const getWorkouts = async (req, res) => {
+  const workouts = await workout.find({}).sort({ createdAt: -1 });
+  res.status(200).json(workouts);
+};
 
 //get a single worout
-const getWorkouts=async(req,res)=>{
-    const {id}=req.params;
-     //IF EMPYTY or not valid
-     if (!moongoose.Types.ObjectId.isValid(id)) {
-       return res.status(404).json({ error: "NO SUCH WORKOUT" });
-     }
+const getWorkout = async (req, res) => {
+  const { id } = req.params;
+  //IF EMPYTY or not valid
+  if (!moongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ error: "NO SUCH WORKOUT" });
+  }
 
+  const workouts = await workout.findById(id);
 
-
-
-    const workouts = await workouts.findById(id);
-     
-    if(!workouts){
-        return res.status(404).json({error:'NO SUCH WORKOUT'})
-    }
-    res.status(200).json(workouts)
-}
+  // if don't find id
+  if (!workouts) {
+    return res.status(404).json({ error: "NO SUCH WORKOUT" });
+  }
+  res.status(200).json(workouts);
+};
 
 //create new workout
  const createWorkout=async(req,res)=>{
 
      const { title, reps, load } = req.body;
+     // add to database
      try {
        //create document
        const workout = await workout.create({ title, load, reps });
