@@ -12,8 +12,10 @@ const workoutDetails=({workout})=>{
         </p>
 
         <p>
-          <strong>{workout.createdAt}</strong>
+          {workout.createdAt}
         </p>
       </div>
     );
 }
+
+export default workoutDetails;
