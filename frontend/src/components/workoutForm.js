@@ -1,12 +1,12 @@
 const { useState } = require("react")
 
-const workoutForm=()=>{
+const WorkoutForm=()=>{
 
 
-    const[title,setTitle]=useState('')
-    const[load,setLoad]=useState('')
-    const[reps,setReps]=useState('')
-    const [error, setError] = useState(null);
+    const[ title,setTitle]=useState('');
+    const [load,setLoad] = useState('');
+    const [reps,setReps] = useState('');
+    const [error,setError] = useState(null);
 
     const handelSubmit=async(e)=>{
 
@@ -45,14 +45,14 @@ const workoutForm=()=>{
 
         <input
           type="text"
-          onChange={(e) => settitle(e.target.value)}
+          onChange={(e) => setTitle(e.target.value)}
           value={title}
         />
 
         <label>load (in kg )</label>
         <input
           type="number"
-          onChange={(e) => setload(e.target.value)}
+          onChange={(e) => setLoad(e.target.value)}
           value={load}
         />
 
@@ -68,4 +68,4 @@ const workoutForm=()=>{
     );
 }
 
-export default workoutForm;
+export default WorkoutForm;

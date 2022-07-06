@@ -2,7 +2,7 @@
 import {useEffect,useState  } from "react";
 
 import  workoutDetails from "../components/workoutDetails";
-import workoutForm from "../components/workoutForm";
+import WorkoutForm from "../components/workoutForm";
 const Home=()=>{
 
     const[workout,setworkout]=useState(null)
