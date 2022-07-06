@@ -2,7 +2,7 @@
 import {useEffect,useState  } from "react";
 
 import  workoutDetails from "../components/workoutDetails";
-
+import workoutForm from "../components/workoutForm";
 const Home=()=>{
 
     const[workout,setworkout]=useState(null)
@@ -20,19 +20,17 @@ const Home=()=>{
       fetchWorkout();
     }, []);
 
-    return(
-        <div className="home">
-
-            <div className="workouts">
-
-            {workout && workout.map((workout)=>(
-             
-             <workoutDetails key={workout._id} workout={workout}/>
+    return (
+      <div className="home">
+        <div className="workouts">
+          {workout &&
+            workout.map((workout) => (
+              <workoutDetails key={workout._id} workout={workout} />
             ))}
-
-            </div>
         </div>
-    )
+        <workoutForm/>
+      </div>
+    );
 }
 
 export default Home;
